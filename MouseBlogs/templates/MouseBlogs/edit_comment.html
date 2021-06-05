@@ -1,0 +1,22 @@
+{% extends "MouseBlogs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>Edit this comment</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <p><a href="{% url 'MouseBlogs:blog' blog.id %}">{{ blog }}</a></p>
+
+  <form action="{% url 'MouseBlogs:edit_comment' comment.id %}"
+        method="post" class="form">
+    {% csrf_token %}
+    {{ bootstrap_form }}
+    {{ form.as_p }}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">save changes</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

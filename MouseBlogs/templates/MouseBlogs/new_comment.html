@@ -1,0 +1,14 @@
+{% extends "MouseBlogs/base.html" %}
+
+{% block content %}
+
+  <p><a href="{% url 'MouseBlogs:blog' blog.id %}">{{ blog }}</a></p>
+
+  <p>Add a new comment:</p>
+  <form action="{% url 'MouseBlogs:new_comment' blog.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">add comment</button>
+  </form>
+
+{% endblock content %}

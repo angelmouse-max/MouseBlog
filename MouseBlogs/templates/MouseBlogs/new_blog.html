@@ -1,0 +1,19 @@
+{% extends "MouseBlogs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>Add a new blog:</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <form action="{% url 'MouseBlogs:new_blog' %}" method="post" class="form">
+      {% csrf_token %}
+      {{ bootstrap_form }}
+      {{ form.as_p }}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">add blog</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

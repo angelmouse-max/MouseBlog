@@ -1,0 +1,33 @@
+{% extends "MouseBlogs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>By {{ blog.owner }} </h2>
+  <h2>{{ blog }}</h2>
+{% endblock header %}
+
+{% block content %}
+  <p>
+     <a href="{% url 'MouseBlogs:new_comment' blog.id %}">Add a new comment</a>
+  </p>
+  {% for comment in comments %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>
+            By {{ comment.owner }}
+            {{ comment.date_added|date:'Y/m/d H:i' }}
+            <small>
+                <a href="{% url 'MouseBlogs:edit_comment' comment.id %}">edit comment</a>
+            </small>
+        </h3>
+      </div>
+      <div class="panel-body">
+          {{ comment.text|linebreaks }}
+      </div>
+      {% empty %}
+        No comments have been added.Please add a new comment
+      {% endfor %}
+    </div>
+
+
+{% endblock content %}
