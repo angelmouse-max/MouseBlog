@@ -1,14 +1,18 @@
 {% extends "MouseBlogs/base.html" %}
 
+{% block header %}
+  <h2>Add a new comment</h2>
+{% endblock header %}
 {% block content %}
 
   <p><a href="{% url 'MouseBlogs:blog' blog.id %}">{{ blog }}</a></p>
 
   <p>Add a new comment:</p>
-  <form action="{% url 'MouseBlogs:new_comment' blog.id %}" method="post">
+  <form action="{% url 'MouseBlogs:new_comment' blog.id %}" method="post" class="form">
     {% csrf_token %}
+    {{ bootstrap_form }}
     {{ form.as_p }}
-    <button name="submit">add comment</button>
+    <button name="submit" class="btn btn-primary">add comment</button>
   </form>
 
 {% endblock content %}
