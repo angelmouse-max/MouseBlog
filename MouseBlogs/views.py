@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect,Http404
 from django.urls import reverse
 from .forms import BlogPostForm,CommentForm
@@ -18,7 +18,7 @@ def bad_404():
     raise Http404
 
 def blog(request,blog_id):
-    blog = BlogPost.objects.get(id=blog_id)
+    blog = get_object_or_404(BlogPost,id=blog_id)
     comments = blog.comment_set.order_by('-date_added')
     context = {'blog': blog, 'comments': comments}
     return render(request, 'MouseBlogs/blog.html', context)
@@ -43,7 +43,7 @@ def new_blog(request):
 @login_required
 def new_comment(request,blog_id):
     """Add new entries"""
-    blog = BlogPost.objects.get(id=blog_id)
+    blog = get_object_or_404(BlogPost,id=blog_id)
 
     if request.method != 'POST':
         form = CommentForm()
@@ -62,7 +62,7 @@ def new_comment(request,blog_id):
 @login_required
 def edit_blog(request,blog_id):
     """Edit the entry"""
-    blog = BlogPost.objects.get(id=blog_id)
+    blog = get_object_or_404(BlogPost, id=blog_id)
     if blog.owner != request.user:
         bad_404()
 
@@ -80,7 +80,7 @@ def edit_blog(request,blog_id):
 @login_required
 def edit_comment(request,comment_id):
     """Edit the entry"""
-    comment = Comment.objects.get(id=comment_id)
+    comment = get_object_or_404(Comment,id=comment_id)
     blog = comment.blog
     if comment.owner != request.user:
         bad_404()

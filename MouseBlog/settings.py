@@ -59,7 +59,7 @@ ROOT_URLCONF = 'MouseBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'MouseBlog/TEMPLATES')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,7 +146,9 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     #support all the computer
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['lite-mouseblog.herokuapp.com']
+
+    DEBUG = False
 
     #quiet wealth settings
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
