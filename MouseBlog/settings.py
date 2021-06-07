@@ -62,7 +62,7 @@ ROOT_URLCONF = 'MouseBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'MouseBlog/TEMPLATES')],
+        'DIRS': [os.path.join(BASE_DIR,'MouseBlog/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
