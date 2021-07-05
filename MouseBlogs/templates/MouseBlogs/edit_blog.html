@@ -2,7 +2,7 @@
 {% load bootstrap3 %}
 
 {% block header %}
-  <h2>Edit this blog</h2>
+  <h2>Edit this blog post:</h2>
 {% endblock header %}
 
 {% block content %}
@@ -10,7 +10,7 @@
   <p><a href="{% url 'MouseBlogs:blog' blog.id %}">{{ blog }}</a></p>
 
   <form action="{% url 'MouseBlogs:edit_blog' blog.id %}"
-        method="post" class="form">
+        method="post" class="form" >
     {% csrf_token %}
     {{ bootstrap_form }}
     {{ form.as_p }}

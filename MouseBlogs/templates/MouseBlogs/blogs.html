@@ -15,7 +15,7 @@
                 By {{ blog.owner }}
                 {{ blog.date_added|date:'Y/m/d H:i' }}
                 <small>
-                    <a href="{% url 'MouseBlogs:edit_blog' blog.id %}">edit blog</a>
+                    <a href="{% url 'MouseBlogs:edit_blog' blog.id %}">edit blog post</a>
                     <a href="{% url 'MouseBlogs:blog' blog.id %}">comment</a>
                 </small>
             </h3>
@@ -28,5 +28,5 @@
       {% endfor %}
         </div>
 
-  <h3><a href="{% url 'MouseBlogs:new_blog' %}">Add a new blog</a></h3>
+  <h3><a href="{% url 'MouseBlogs:new_blog' %}">Add a new blog post</a></h3>
 {% endblock content %}
