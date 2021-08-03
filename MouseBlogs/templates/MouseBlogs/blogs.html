@@ -17,7 +17,7 @@
                 <small>
                     <a href="{% url 'MouseBlogs:edit_blog' blog.id %}">edit blog post</a>
                     <a href="{% url 'MouseBlogs:blog' blog.id %}">comment</a>
-                    <a href="https://service.weibo.com/share/share.php?appkey=&title=&url=&pic=&searchPic=false&style=simple" target="_blank">Share this on Sina Weibo</a>
+                    <a href="https://service.weibo.com/share/share.php?appkey=&title={{ blog }}&url=&pic=&searchPic=false&style=simple" target="_blank">Share this on Sina Weibo</a>
                     <a href="https://twitter.com/share?text={{ blog }}">Share this on Twitter</a>
                 </small>
             </h3>
