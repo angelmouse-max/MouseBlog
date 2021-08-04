@@ -17,8 +17,8 @@
                 <small>
                     <a href="{% url 'MouseBlogs:edit_blog' blog.id %}">edit blog post</a>
                     <a href="{% url 'MouseBlogs:blog' blog.id %}">comment</a>
-                    <a href="https://service.weibo.com/share/share.php?appkey=&title=&url=https://lite-mouseblog.herokuapp.com/{{ blog.id }}&pic=&searchPic=false&style=simple" target="_blank">Share this on Sina Weibo</a>
-                    <a href="http://twitter.com/share?text=An%20Awesome%20Link&url=https://lite-mouseblog.herokuapp.com/{{ blog.id }}">
+                    <a href="https://service.weibo.com/share/share.php?appkey=&title=&url=https://lite-mouseblog.herokuapp.com/blog{{ blog.id }}&pic=&searchPic=false&style=simple" target="_blank">Share this on Sina Weibo</a>
+                    <a href="http://twitter.com/share?text=An%20Awesome%20Link&url=https://lite-mouseblog.herokuapp.com/blog{{ blog.id }}">
 Share This on Twitter</a>
                 </small>
             </h3>
